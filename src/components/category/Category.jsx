@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-import all_product from '../../Datas/all_products'
-import { Item } from '../homesection/items/Item'
+ import { Item } from '../homesection/items/Item'
+import all_products from '../../Datas/all_products'
 
 export const Category = ({category,banner}) => {
   return (
@@ -18,12 +18,12 @@ export const Category = ({category,banner}) => {
           </div>
           {/* container */}
           <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-           {all_product.map((item)=>{
+           {all_products.map((item)=>{
              if (category === item.category) {
               return  <Item key={item.id} id={item.id} image={item.image} name={item.name} new_price={item.new_price}
               old_price={item.old_price}/>
             }
-           })}
+           })} 
           </div>
           <div className="mt-16 text-center">
             <button className='px-6 text-black py-3 bg-[#fff] rounded-full shadow'>

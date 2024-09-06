@@ -8,7 +8,7 @@ const POPULAR =[
         new_price:50.00,
         old_price:80.00
        
-    },
+    }, 
     {
         id: 2,
         name:"Striped Flutter Sleeve Overlap Collar Poplum Hem Blouse",

@@ -21,7 +21,7 @@ export const Header = () => {
             </div>
 
             {/* navbar desktop */}
-            <div className='hidden flex gap-x-5 xl:gap-x-10 
+            <div className='hidden md:flex gap-x-5 xl:gap-x-10 
             medium-15'>
              <Navbar />
              </div>
@@ -46,7 +46,7 @@ export const Header = () => {
                )}
 
                <div className="flex justify-between items-center sm:gap-x-6">
-                <NavLink to={"cart-page"} className="flex relative">
+                <NavLink to={"cartpage"} className="flex relative">
                   <FaOpencart className="p-1 h-8 w-8 ring-slate-900/30 ring-1 rounded-full"/>
                   <span className='absolute -top-3 -right-1 flex justify-center w-5 h-5 rounded-ful bg-red-500 text-white medium-14  rounded-full'>
                     0
