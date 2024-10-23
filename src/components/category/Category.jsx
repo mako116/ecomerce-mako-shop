@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
  import { Item } from '../homesection/items/Item'
 import all_products from '../../Datas/all_products'
+import { ShopContext } from '../../Context/ShopCenter'
 
 export const Category = ({category,banner}) => {
+
+  const {all_products} = useContext(ShopContext);
   return (
     <section className='py-12 xl:py-28 px-20'>
       <div className="">

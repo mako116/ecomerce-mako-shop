@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { FaOpencart, FaUser, FaUserCircle } from 'react-icons/fa'
 import { MdClose, MdLogout, MdMenu } from 'react-icons/md';
+import { ShopContext } from '../../Context/ShopCenter';
 
 export const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened(!menuOpened);
-
+  const {getTotalCartItems} = useContext(ShopContext)
 
   return (
     <header className='fixed top-0 left-0 m-auto  w-full bg-white ring-1 ring-slate-900/5 z-10'>
@@ -49,20 +50,22 @@ export const Header = () => {
                 <NavLink to={"cartpage"} className="flex relative">
                   <FaOpencart className="p-1 h-8 w-8 ring-slate-900/30 ring-1 rounded-full"/>
                   <span className='absolute -top-3 -right-1 flex justify-center w-5 h-5 rounded-ful bg-red-500 text-white medium-14  rounded-full'>
-                    0
+                  {getTotalCartItems()}
                   </span>
                   </NavLink>
-                  {/* <NavLink to={"logout"} className="flex items-center p-3 bg-orange-400 text-white rounded-lg">
+
+                 {localStorage.getItem('auth-token') ? <NavLink to={"logout"}  onClick={()=>{localStorage.removeItem('auth-token'); window.location.replace("/")}} className="flex items-center p-3 bg-orange-400 text-white rounded-lg">
                     <MdLogout/>
                     Logout
-                  </NavLink> */}
+                  </NavLink> :
                   <NavLink to={"login"} className="flex items-center gap-x-2 bg-transparent p-3 medium-16">
                     <FaUserCircle/>
                     Login
-                  </NavLink>
+                  </NavLink> }
+               </div>
                </div>
               </div>
-        </div>
+        
     </header>
   )
 }

@@ -3,10 +3,10 @@ import { ShopContext } from '../../Context/ShopCenter'
 import {TbTrash} from "react-icons/tb"
  const CartSect = () => {
 
-    const {all_products, cartItems,removeCart} = useContext(ShopContext);
+    const {getTotalCartItems,getTotalWithShipping,getTotalCartAmount, all_products, cartItems,removeCart} = useContext(ShopContext);
  
     return (
-    <section className='px-10 py-28 '>
+    <section className='px-10 py-28  bg-gray-500/10'>
         <table className='w-full mx-auto'>
             <thead>
                 <tr className=' bg-slate-900/10 regular-18 sm:regular-22 text-start py-12'>
@@ -54,33 +54,33 @@ import {TbTrash} from "react-icons/tb"
             </tbody>
            
         </table>
-        <div className="flex flex-col gap-20 my-16 p-8 md:flex-row rounded-md
+        <div className="flex flex-col gap-10 my-16 p-8  rounded-md
          bg-white w-full max-w-[667px]">
                
-                <div className="flex flex-col gap-10">
+                <div className="flex flex-col max-w-[297px] gap-7">
                 <h4 className='font-bold'>Summary</h4>
                     <div className="flex justify-between">
                         <h4>Subtotal:</h4>
-                        <h4 className='text-gray-500'>${0}</h4>
+                        <h4 className='text-gray-500'>${getTotalCartAmount()}</h4>
                     </div>
                     <hr />
                     <div className="flex justify-between">
                         <h4>Shipping Fee:</h4>
-                        <h4 className='text-gray-500'>Free</h4>
+                        <h4 className='text-gray-500'>${getTotalWithShipping()}</h4>
                     </div>
                     <hr />
                     <div className='flex justify-between py-4'>
                         <h4 className='font-bold'>Total:</h4>
-                        <h4 className='font-bold'>${0}</h4>
+                        <h4 className='font-bold'>${getTotalCartAmount()}</h4>
                     </div>
                 </div>
-                <button className='bg-gray-700 text-white rounded py-[10px] px-[20px]'>Checkout</button>
+                <button className='bg-gray-700 text-white rounded py-[10px] px-[20px] h-10 w-[200px]'>Checkout</button>
                 <div className="flex flex-col gap-10">
                     <h4 className='font-bold capitalize'>Your Coupon Code enter here:</h4>
                     <div className="flex justify-between pl-5 h-12 bg-gray-200 rounded-full ring-1 ring-slate-900/10">
                         <input type="text" placeholder='Coupon Code'
                         className='bg-transparent border-none outline-none' />
-                        <button className="bg-gray-800  text-white py-[10px] px-[20px]">submit</button>
+                        <button className="bg-gray-800  text-white py-[10px] px-[20px] rounded-r-[20px]">submit</button>
                     </div>
                 </div>
             </div>

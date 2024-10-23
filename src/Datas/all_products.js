@@ -36,7 +36,7 @@ let all_products =[
         image:img4,
          new_price:50.00,
          category:"kids",
-        old_price:80.00
+        old_price:80.00,
        
     },
     {
